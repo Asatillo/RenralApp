@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title th:text="${title}"></title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container mt-5">
+  <h3>Car management</h3>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Active</th>
+      <th>Brand</th>
+      <th>Model</th>
+      <th>Price/day</th>
+      <th>Seats</th>
+      <th>Fuel type</th>
+      <th>Quality</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="car : ${cars}">
+      <td th:text="${car.id}"></td>
+      <td th:text="${car.active}"></td>
+      <td th:text="${car.brand}"></td>
+      <td th:text="${car.model}"></td>
+      <td th:text="${car.pricePerDay}"></td>
+      <td th:text="${car.seats}"></td>
+      <td th:text="${car.fuelType}"></td>
+      <td th:text="${car.quality}"></td>
+      <td>
+        <a th:href="@{/admin/editCar/{id}(id=${car.id})}" class="btn btn-primary">Edit</a>
+        <a th:if="car.active" th:href="@{/admin/deactivateCar/{id}(id=${car.id})}" class="btn btn-danger">Deactivate</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
