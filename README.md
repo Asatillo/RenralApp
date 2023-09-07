@@ -12,15 +12,15 @@ The task involves creating a public interface where users can:
 ##### Tasks to Implement and Their Points
 _Search Interface_
 
-1. On the main page of the public interface, the user selects a **_-from_** and a **_-to_** date from a _daterange picker_. (20 points)
+1. On the main page of the public interface, the user selects a **_-from_** and a **_-to_** date from a _daterange picker_. (20 points) +
 
-2. This triggers a request to the server. (10 points)
+2. This triggers a request to the server. (10 points) +
 
-   In the response, a **list** of available cars during that period is returned, including images and daily rates. (30 points)
+   In the response, a **list** of available cars during that period is returned, including images and daily rates. (30 points) +
 
 _Reservation Management_
 
-3. Clicking on a selected car opens a form where the user provides their details: (50 points)
+3. Clicking on a selected car opens a form where the user provides their details: (50 points) +
 
     * Name,
 
@@ -34,7 +34,7 @@ _Reservation Management_
 
     * Total reservation cost (dependent on the number of reserved days!)
 
-4. Pressing a submit button finalizes the order. (10 points)
+4. Pressing a submit button finalizes the order. (10 points)  +
 
 _Tests_
 
