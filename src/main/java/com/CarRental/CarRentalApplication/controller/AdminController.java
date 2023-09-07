@@ -24,7 +24,7 @@ public class AdminController {
             model.addAttribute("title", "Admin");
             List<Reservation> reservations = adminService.getAllReservations();
             model.addAttribute("reservations", reservations);
-            return "bookings";
+            return "adminInterface/bookings";
         }
 
         @GetMapping("manageCars")
@@ -32,13 +32,13 @@ public class AdminController {
             model.addAttribute("title", "Manage Cars");
             List<Car> cars = adminService.getAllCars();
             model.addAttribute("cars", cars);
-            return "manageCars";
+            return "adminInterface/manageCars";
         }
 
         @GetMapping("deactivateCar/{id}")
         public String deactivateCar(Model model, @PathVariable Integer id){
             adminService.deactivateCar(id);
-            return "manageCars";
+            return "adminInterface/manageCars";
         }
 
 }

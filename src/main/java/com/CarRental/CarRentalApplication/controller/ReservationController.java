@@ -22,7 +22,7 @@ public class ReservationController {
     @GetMapping("")
     public String searchCar(Model model){
         model.addAttribute("title", "Car Rental");
-        return "index";
+        return "userInterface/index";
     }
 
     @GetMapping("/availableCars")
@@ -33,7 +33,7 @@ public class ReservationController {
         model.addAttribute("endDate", endDate);
         List<Car> availableCars = reservationService.findAvailableCarsForPeriod(startDate, endDate);
         model.addAttribute("availableCars", availableCars);
-        return "availableCars";
+        return "userInterface/availableCars";
     }
 
     @GetMapping("/deal")
@@ -53,7 +53,7 @@ public class ReservationController {
         model.addAttribute("startDate", startDate);
         model.addAttribute("endDate", endDate);
 
-        return "deal";
+        return "userInterface/deal";
     }
 
     @PostMapping("/reservation")
@@ -73,6 +73,6 @@ public class ReservationController {
 
         model.addAttribute("endDate", endDate);
         model.addAttribute("startDate", startDate);
-        return "/reservation";
+        return "userInterface/reservation";
     }
 }
