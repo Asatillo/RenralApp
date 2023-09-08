@@ -22,7 +22,7 @@ public class ReservationController {
     @GetMapping("")
     public String searchCar(Model model){
         model.addAttribute("title", "Car Rental");
-        return "userInterface/index";
+        return "userInterface/searchCars";
     }
 
     @GetMapping("/availableCars")
