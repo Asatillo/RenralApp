@@ -3,7 +3,6 @@ package com.CarRental.CarRentalApplication.controller;
 import com.CarRental.CarRentalApplication.model.Car;
 import com.CarRental.CarRentalApplication.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,6 +30,9 @@ public class ReservationController {
         model.addAttribute("title", "Available Cars");
         model.addAttribute("startDate", startDate);
         model.addAttribute("endDate", endDate);
+
+//        Check if the dates aren't yesterday or earlier
+
         List<Car> availableCars = reservationService.findAvailableCarsForPeriod(startDate, endDate);
         model.addAttribute("availableCars", availableCars);
         return "userInterface/availableCars";

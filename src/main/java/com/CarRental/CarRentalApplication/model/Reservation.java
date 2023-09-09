@@ -1,6 +1,7 @@
 package com.CarRental.CarRentalApplication.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.FutureOrPresent;
 import org.springframework.data.annotation.Transient;
 import lombok.Data;
 
@@ -13,6 +14,8 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @FutureOrPresent
     private LocalDate startDate;
     private LocalDate endDate;
 

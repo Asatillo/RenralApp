@@ -1,8 +1,6 @@
-## Description of the Task to be Implemented
 ### Car Rental Application
 
-#### Public Interface `max. 150 points`
-##### Task Description
+##### Description
 The task involves creating a public interface where users can:
 
 * search among the cars
@@ -88,20 +86,18 @@ _Tests_
 
 ### Recommended Technology Stack:
 
-* [Spring Boot 2+](https://spring.io/projects/spring-boot)
+* [Spring Boot 3.1.3](https://spring.io/projects/spring-boot)
 
 * [Spring MVC](https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#spring-web)
 
 * [Spring Security](https://spring.io/projects/spring-security)
 
-* Any database engine (PostgreSQL is recommended, but any other will do)
-
-* If you read this, send a message and get ten points ;)
+* Database engine: PostgreSQL
 
 * Frontend:
 
     * HTML5
 
-    * Bootstrap or Bulma CSS
+    * Bootstrap 4.5.2
 
     * [Thymeleaf](https://www.thymeleaf.org/)
