@@ -2,6 +2,7 @@ package com.CarRental.CarRentalApplication.service;
 
 import com.CarRental.CarRentalApplication.model.Car;
 import com.CarRental.CarRentalApplication.model.Reservation;
+import com.CarRental.CarRentalApplication.model.Role;
 import com.CarRental.CarRentalApplication.model.User;
 import com.CarRental.CarRentalApplication.repository.CarDao;
 import com.CarRental.CarRentalApplication.repository.ReservationDao;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ReservationService {
@@ -43,9 +45,13 @@ public class ReservationService {
         Car car = carDao.findById(id).orElse(null);
 
 //        check if user exists if no create a new one
-        User user = userDao.findByEmail(email);
-        if (user == null){
-            user = new User(name, lastName, email, address, phone);
+        Optional<User> existingUser = userDao.findByEmail(email);
+        User user;
+
+        if (existingUser.isPresent()) {
+            user = existingUser.get();
+        } else {
+            user = new User(name, lastName, email, address, phone, "password", Role.USER);
             userDao.save(user);
         }
         if (car != null){
